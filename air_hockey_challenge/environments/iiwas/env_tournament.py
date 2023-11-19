@@ -87,6 +87,9 @@ class AirHockeyTournament(AirHockeyDouble):
                 self.start_side = 1
                 return True
 
+        # In all other cases, randomly select the starting side of the puck
+        self.start_side = np.random.choice([1, -1])
+
         # Puck stuck in the middle
         if np.abs(puck_pos[0]) < 0.15 and np.linalg.norm(puck_vel[0]) < 0.025:
             return True
