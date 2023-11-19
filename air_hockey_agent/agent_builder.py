@@ -1,3 +1,14 @@
+from air_hockey_challenge.framework import AgentBase
+
+from drl_air_hockey import (
+    MultiStrategySpaceRAgent,
+    SingleStrategySpaceRAgent,
+    SpaceRAgent,
+)
+
+SPACER_AGENT: AgentBase = SingleStrategySpaceRAgent
+
+
 def build_agent(env_info, **kwargs):
     """
     Function where an Agent that controls the environments should be returned.
@@ -10,4 +21,4 @@ def build_agent(env_info, **kwargs):
          (AgentBase) An instance of the Agent
     """
 
-    raise NotImplementedError
+    return SPACER_AGENT(env_info, **kwargs)
